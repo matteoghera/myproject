@@ -1,6 +1,6 @@
-language:java
+language: java
 
-install:true
+install: true
 
 script:
 - mvn -f com.examples.myproject/pom.xml clean verify
