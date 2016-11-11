@@ -2,5 +2,11 @@ language: java
 
 install: true
 
+sudo: false
+
+cache:
+   directories:
+   - $HOME/.m2
+
 script:
 - mvn -f com.mycompany.app.myproject/pom.xml clean verify
