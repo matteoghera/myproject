@@ -9,4 +9,4 @@ cache:
 install: true
 
 script:
- - mvn -f com.examples.exercise/pom.xml clean verify coveralls:report
+ - mvn -f com.mycompany.app.myproject/pom.xml clean verify coveralls:report
