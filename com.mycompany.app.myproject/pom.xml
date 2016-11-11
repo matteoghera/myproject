@@ -13,9 +13,24 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jacoco.data.file>${project.build.directory}/coverage-reports/jacoco.exec</jacoco.data.file>
+		<jacoco.report.path>${project.reporting.outputDirectory}/jacoco-ut</jacoco.report.path>
 	</properties>
 
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eluder.coveralls</groupId>
+					<artifactId>coveralls-maven-plugin</artifactId>
+					<version>4.3.0</version>
+					<configuration>
+						<jacocoReports>
+							<jacocoReport>${jacoco.report.path}/jacoco.xml</jacocoReport>
+						</jacocoReports>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.jacoco</groupId>
@@ -40,7 +55,7 @@
 						</goals>
 						<configuration>
 							<dataFile>${jacoco.data.file}</dataFile>
-							<outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
+							<outputDirectory>${jacoco.report.path}</outputDirectory>
 						</configuration>
 					</execution>
 				</executions>
